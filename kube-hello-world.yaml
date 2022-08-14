@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: hello-world
-          image: hworld
+          image: mytwrepo.azurecr.io/hworldrepo/hworld:v1
           imagePullPolicy: Never
           ports:
             - containerPort: 5000
