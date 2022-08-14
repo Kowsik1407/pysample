@@ -21,15 +21,15 @@ jobs:
           tenant: ${{ secrets.tenant }}
           registry: ${{ secrets.registry }}
           repository: ${{ secrets.repository }}
-          image:  hello-world
-          folder: hello-world
+          image:  hworld
+          folder: /
           branch: master
           tag: ${{ github.sha }}
       - name: Azure login
         id: login
         uses: azure/login@v1.4.3
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          creds: '{"clientId":"${{ secrets.SERVICE_PRINCIPAL }}","clientSecret":"${{ secrets.SERVICE_PRINCIPAL_PASSWORD }}","subscriptionId":"${{ secrets.SUBSCRIPTION }}","tenantId":"${{ secrets.TENANT }}"}'
       - name: Set AKS context
         id: set-context
         uses: azure/aks-set-context@v3
@@ -46,5 +46,5 @@ jobs:
           namespace: 'default'
           manifests: |
              kube-hello-world.yaml
-          images: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/hello-world:${{ github.sha }}'
+          images: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/hworld:${{ github.sha }}'
           pull: false
