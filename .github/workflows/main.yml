@@ -22,7 +22,7 @@ jobs:
           registry: ${{ secrets.registry }}
           repository: ${{ secrets.repository }}
           image:  hworld
-          folder: /
+          folder: ./
           branch: master
           tag: ${{ github.sha }}
       - name: Azure login
