@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: hello-world
-          image: hello-world
+          image: hworld
           imagePullPolicy: Never
           ports:
             - containerPort: 5000
