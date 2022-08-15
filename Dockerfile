@@ -10,6 +10,7 @@ RUN ls
 # Copy the source from the current directory to the Working Directory inside the container
 COPY . .
 RUN ls
+RUN pip install -r requirement.txt
 EXPOSE 5000
 # Run the executable
 CMD ["python", "hello-world.py"]
