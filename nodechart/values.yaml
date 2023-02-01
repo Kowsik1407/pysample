@@ -1,0 +1,7 @@
+deployment:
+  image: "abinaya251/samplenode"
+  tag: "latest"
+name: node-image
+service:
+  type: LoadBalancer
+  port: 3080
